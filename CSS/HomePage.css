@@ -1,0 +1,39 @@
+body{
+	font-family:Microsoft JhengHei;
+}
+
+.LoginBtn{
+	margin: 2px;
+	font-size: 24px;
+	background-color:lightgray;
+	float: right;
+}
+
+.HomePageTitle{
+	margin: 50px;
+	margin-bottom: 20px;
+	height: 100px;
+	font-size: 50px;
+	text-align: center;
+}
+
+.SearchBox{
+	margin-left: 200px;
+	width: 800px;
+	height: 50px;
+}
+
+.SearchInput{
+	margin-top: 8px;
+	margin-bottom: 8px;
+	width: 700px;
+	float: left;
+}
+
+.SearchBtn{
+	margin-left: 10px;
+	height: 50px;
+	width: 80px;
+	font-size: 25px;
+	float: right;
+}
