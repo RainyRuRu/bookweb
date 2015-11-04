@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-	<link rel=stylesheet type="text/css" href="MemberCenter.css">
+	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
 </head>
 <body>
 	<div style="height:50px;background-color:lightgray">暫時的header</div>
