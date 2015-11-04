@@ -1,0 +1,29 @@
+body{
+	font-family:Microsoft JhengHei;
+}
+
+.MemberTitle{
+	margin: 20px;
+	height: 100px;
+	font-size: 50px;
+	text-align: center;
+}
+
+.MemberBtns{
+	padding-left: 320px;
+	margin: auto;
+}
+
+.InfoBtn{
+	height: 200px;
+	width: 200px;
+	font-size: 25px;
+	float: left;
+}
+
+.HistoryBtn{
+	margin-left: 100px;
+	height: 200px;
+	width: 200px;
+	font-size: 25px;
+}
