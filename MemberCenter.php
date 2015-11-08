@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="MemberTitle">會員中心</div>
 		<div class="MemberBtns">
-			<button type="button" class="btn btn-info InfoBtn">個人資料修改</button>
+			<button type="button" class="btn btn-info InfoBtn" onclick="location.href='MemberInfo.php'">個人資料修改</button>
 			<button type="button" class="btn btn-success HistoryBtn">個人交易紀錄</button>
 		</div>
 	</div>
