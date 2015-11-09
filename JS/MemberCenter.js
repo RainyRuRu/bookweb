@@ -11,7 +11,10 @@ function UpdateUserInfo() {
 
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			console.log(xhttp.responseText);
+			if (xhttp.responseText.result = "true"){
+				var alert = document.getElementById('alert');	
+				alert.style.display = 'inline';
+			}
 		}
 	}
 
@@ -25,5 +28,27 @@ function UpdateUserInfo() {
 			"&phone="+phone+
 			"&address="+address;
 	xhttp.send(data);
-	
+}
+
+function checkField(){
+	var alert = document.getElementById('alert');
+	alert.style.display = 'none';
+	var checkResult = true;
+	var data = document.getElementsByTagName('input');
+	for (var i = 0 ; i < data.length ; i++) {
+		var name = data[i].name;
+		var errorId = name+"ErrorLabel";
+		var label = document.getElementById(errorId);
+
+		if (data[i].value == "") {
+			label.style.display = 'inline';
+			var checkResult = false;
+		} else {
+			label.style.display = 'none';
+		}
+	}
+
+	if (checkResult == true) {
+		UpdateUserInfo();
+	}
 }

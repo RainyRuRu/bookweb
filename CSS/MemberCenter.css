@@ -26,3 +26,13 @@ body{
 	width: 200px;
 	font-size: 25px;
 }
+
+
+/*MemeberInfo*/
+
+.errorLabel{
+	padding-top: 7px;
+	color: red;
+	display: none;
+}
+
