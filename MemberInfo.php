@@ -5,16 +5,17 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
+	<SCRIPT src="JS/MemberCenter.js"></SCRIPT>
 </head>
 <body>
 	<div style="height:50px;background-color:lightgray">暫時的header</div>
 	<div class="container">
 		<div class="MemberTitle">會員資料修改</div>
-		<form class="form-horizontal" role="form">
+		<div class="form-horizontal">
 			<div class="form-group">
 				<label class="col-sm-4 control-label">姓名：</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" id="name">
+					<input type="text" class="form-control" name="name">
 				</div>
 			</div>
 			<div class="form-group">
@@ -68,11 +69,9 @@
 				</div>
 			</div>
 			<center>
-			<button type="submit" class="btn btn-default">儲存</button>
+			<button class="btn btn-default" onclick='UpdateUserInfo()'>儲存</button>
 			</center>
-		</form>
+		</div>
 	</div>
-
 </body>
-
 </html>
