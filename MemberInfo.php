@@ -8,7 +8,7 @@
 	<SCRIPT src="JS/MemberCenter.js"></SCRIPT>
 </head>
 <body>
-	<div style="height:50px;background-color:lightgray">暫時的header</div>
+	<div style="height:50px;background-color:lightgray"></div>
 	<div class="container">
 		<div class="MemberTitle">會員資料修改</div>
 		<div id="alert" class="col-sm-offset-3 col-sm-6 alert alert-success" style="display:none"><center>修改成功</center></div>

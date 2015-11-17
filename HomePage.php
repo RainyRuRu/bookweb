@@ -7,14 +7,14 @@
 	<link rel=stylesheet type="text/css" href="CSS/HomePage.css">
 </head>
 <body>
-	<div style="height:50px;background-color:lightgray">暫時的header
-		<button type="button" class="btn btn-login LoginBtn">登入</button>
+	<div style="height:50px;background-color:lightgray">
+		<button type="button" class="btn HeaderLoginBtn" onclick="location.href='Login.php'">登入</button>
 	</div>
 	<div class="container">
-		<div class="HomePageTitle">高師大校內二手書交易網</div>
+		<div class="Title">高師大校內二手書交易網</div>
 		<div class="SearchBox">
 			<input type="text" class="form-control SearchInput">
-			<button type="button" class="btn btn-search SearchBtn">搜尋</button>
+			<button type="button" class="btn SearchBtn">搜尋</button>
 		</div>
 
 	</div>

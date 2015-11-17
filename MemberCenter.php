@@ -7,7 +7,7 @@
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
 </head>
 <body>
-	<div style="height:50px;background-color:lightgray">暫時的header</div>
+	<div style="height:50px;background-color:lightgray"></div>
 	<div class="container">
 		<div class="MemberTitle">會員中心</div>
 		<div class="MemberBtns">
