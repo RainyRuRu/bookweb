@@ -1,10 +1,16 @@
 /*
-	AJAX 戳API - SelectUser.php
+	AJAX 戳API - Register.php
 */
-function CheckAccount() {
+function RegisterUser() {
 	//var u_id = '1'; //id等加上session後修改
 	var acc = document.getElementsByName('acc')[0].value;
 	var pwd = document.getElementsByName('pwd')[0].value;
+	var name = document.getElementsByName('name')[0].value;
+	var dept = document.getElementsByName('dept')[0].value;
+	var degree = document.getElementsByName('degree')[0].value;
+	var email = document.getElementsByName('email')[0].value;
+	var phone = document.getElementsByName('phone')[0].value;
+	var address = document.getElementsByName('address')[0].value;
 
 	//JS的AJAX開始
 
@@ -21,11 +27,16 @@ function CheckAccount() {
 		}
 	}
 
-	xhttp.open("POST", "API/SearchUser.php", true);
+	xhttp.open("POST", "API/InsertUser.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id+
-			"&acc="+acc+
-			"&pwd="+pwd;
+	var data = "acc="+acc+
+			"&pwd="+pwd+
+			"&name="+name+
+			"&dept="+dept+
+			"&degree="+degree+
+			"&email="+email+
+			"&phone="+phone+
+			"&address="+address;
 	xhttp.send(data);
 }
 
@@ -33,7 +44,7 @@ function CheckAccount() {
 	確認輸入參數非空白
 	如果是空白則顯示錯誤訊息
 
-	全部都非空白呼叫CheckAccount方法
+	全部都非空白呼叫UpdateUserInfo方法
 */
 function checkField(){
 	
@@ -57,6 +68,6 @@ function checkField(){
 	}
 
 	if (checkResult == true) {
-		CheckAccount();
+		RegisterUser();
 	}
 }

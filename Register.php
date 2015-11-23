@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
-
+	<SCRIPT src="JS/Register.js"></SCRIPT>
 </head>
 <body>
 	<div style="height:50px;background-color:lightgray"></div>
@@ -13,6 +13,20 @@
 		<div class="MemberTitle">會員註冊</div>
 
 		<div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-4 control-label">帳號：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="acc">
+				</div>
+				<label id="nameErrorLabel" class="col-sm-4 errorLabel">請輸入帳號</label>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">密碼：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" name="pwd">
+				</div>
+				<label id="nameErrorLabel" class="col-sm-4 errorLabel">請輸入密碼</label>
+			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">姓名：</label>
 				<div class="col-sm-4">
@@ -75,7 +89,7 @@
 				<label id="addressErrorLabel" class="col-sm-4 errorLabel">請輸入地址</label>
 			</div>
 			<center>
-			<button class="btn btn-default" onclick='checkField()'>儲存</button>
+			<button class="btn btn-default" onclick='checkField()'>註冊</button>
 			</center>
 		</div>
 	</div>

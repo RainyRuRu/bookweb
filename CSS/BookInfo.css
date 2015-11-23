@@ -1,0 +1,36 @@
+body{
+	font-family:Microsoft JhengHei;
+}
+
+.HeaderLoginBtn{
+	margin: 2px;
+	font-size: 22px;
+	background-color:lightgray;
+	float: right;
+}
+
+.Title{
+	margin: 20px;
+	margin-top:40px;
+	font-size: 32px;
+}
+
+.InfoBox{
+	margin: 20px;
+	width: 1000px;
+	height: 50px;
+}
+
+.Pic{
+	margin: 5px;
+	height: 300px;
+	width: 400px;
+	float: left;
+}
+
+.Infos{
+	margin: 5px;
+	width: 580px;
+	font-size: 22px;
+	float: right;
+}

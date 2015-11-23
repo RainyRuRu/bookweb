@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/Login.css">
+	<SCRIPT src="JS/Login.js"></SCRIPT>
 </head>
 <body>
 	<div style="height:50px;background-color:lightgray"></div>
@@ -18,8 +19,8 @@
 		</form>
 
 		<div class="LoginBtns">
-			<button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">註冊</button>
+			<button class="btn btn-lg btn-primary btn-block" onclick='checkField()'>登入</button>
+			<button class="btn btn-lg btn-primary btn-block" onclick="location.href='Register.php'">註冊</button>
 		</div>
 
 	</div>
