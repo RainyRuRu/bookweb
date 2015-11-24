@@ -1,13 +1,7 @@
 <?php
 
-//透過u_id搜尋Books中的資料
-//用於顯示於個人歷史紀錄中的出售中
+$b_id = $_POST['b_id'];
 
-$u_id = $_POST['u_id'];
-
-/*
-$u_id = '2';
-*/
 
 $result = false;
 $error = null;
@@ -22,14 +16,17 @@ try {
 	$db = new PDO($dsn, $user, $password);
 	$db->exec("set names utf8");
 	
-	$stmt = $db->prepare('SELECT `book_id` ,`name`, `status` from `books` 
-		WHERE owner=:u_id And status <> 2 
-		ORDER BY `books`.`status` DESC');
-	
-	$stmt->bindParam(":u_id", $u_id);
+	$stmt = $db->prepare('DELETE FROM `books`
+		WHERE book_id=:b_id');
 
+	$stmt->bindParam(":b_id", $b_id);
     $stmt->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$stmt = $db->prepare('DELETE FROM `buying`
+		WHERE b_id=:b_id');
+	
+	$stmt->bindParam(":b_id", $b_id);
+    $stmt->execute();
 
 	$result = true;
 } catch (PDOException $e) {

@@ -1,8 +1,12 @@
 var nowPage = "";
 
 
-function load(){
-	changePage('sellTag');
+function load(page){
+	if (page == 0){
+		changePage('sellTag');
+	}
+
+	changePage(page);
 }
 
 /*
@@ -27,6 +31,8 @@ function changePage(pageName) {
 	pageTag[pageName].className = "active";
 	if (pageName == 'sellTag') {
 		searchSellInfo();
+	} else if (pageName == 'buyingTag') {
+
 	} else if (pageName == "soldTag") {
 		searchHistoryInfo('sold');
 	} else {
@@ -139,10 +145,12 @@ function createSellTableRow(num, data){
 	}
 	tr.insertAdjacentHTML('beforeend', span);	
 
-	var span = '<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"style="cursor:pointer"></span></td>';
+	var span = '<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"'+
+				'style="cursor:pointer"></span></td>';
 	tr.insertAdjacentHTML('beforeend', span);	
 
-	var span = '<td><span class="glyphicon glyphicon-trash" aria-hidden="true"style="cursor:pointer"></span></td>';
+	var span = '<td><span class="glyphicon glyphicon-trash" aria-hidden="true"'+
+				'style="cursor:pointer" onclick="deleteBook('+data.book_id+')"></span></td>';
 	tr.insertAdjacentHTML('beforeend', span);	
 	
 	return tr;
@@ -158,4 +166,30 @@ function showTable(type){
 		sellTable.className = "hiden";
 		historyTable.className = "";	
 	}
+}
+
+function deleteBook(b_id) {
+
+    if (confirm("是否確定要刪除這本書?") == false) {
+        return;
+    }
+
+	//JS的AJAX開始
+
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			//接收API的回傳值 -- 是JSON
+			if (xhttp.responseText.result = "true"){
+				alert("刪除成功");
+				location.href="memberHistory.php";
+			}
+		}
+	}
+
+	xhttp.open("POST", "API/DeleteBook.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var data = "b_id="+b_id;
+	xhttp.send(data); 
 }
