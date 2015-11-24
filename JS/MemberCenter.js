@@ -68,3 +68,45 @@ function checkField(){
 		UpdateUserInfo();
 	}
 }
+
+/*
+	透過AJAX搜尋使用者資料
+
+*/
+function searchUserInfo(){
+
+	var u_id = '1'; //id等加上session後修改
+
+	//JS的AJAX開始
+
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			//接收API的回傳值 -- 是JSON
+			if (xhttp.responseText.result = "true"){
+				showUserInfo(JSON.parse(xhttp.responseText));
+			}
+		}
+	}
+
+	xhttp.open("POST", "API/SelectUser.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var data = "u_id="+u_id;
+	xhttp.send(data);
+}
+
+function showUserInfo(json){
+
+	var userField = document.getElementsByTagName("input");
+	userField['name'].value = json.data.name;
+	userField['degree'].value = json.data.degree;
+	userField['phone'].value = json.data.phone;
+	userField['email'].value = json.data.email;
+	userField['address'].value = json.data.address;
+
+	var dept = json.data.department;
+
+	document.getElementById(dept).selected = true;
+
+}
