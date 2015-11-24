@@ -8,4 +8,5 @@ echo '<div class="header">
 		<span class="glyphicon glyphicon-home homeIcon" aria-hidden="true" onclick="location.href=\'Homepage.php\'"></span>' . 
 		$login .
 		'<button type="button" class="btn HeaderLoginBtn" onclick="location.href=\'MemberCenter.php\'">會員中心</button>
+		<button type="button" class="btn HeaderLoginBtn" onclick="location.href=\'SellBook.php\'">賣書</button>
 	</div>';

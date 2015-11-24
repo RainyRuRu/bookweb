@@ -1,5 +1,7 @@
-<?php session_start(); ?>
-<?php 
+<?php session_start(); 
+if (!isset($_SESSION['u_id'])){
+	header("LOCATION: Login.php");	
+}
 if (isset($_POST['b_id'])) {
 	$b_id = $_POST['b_id'];
 } else {
