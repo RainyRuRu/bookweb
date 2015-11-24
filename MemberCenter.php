@@ -13,7 +13,7 @@
 	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 </head>
 <body>
-	<?php include 'header.php'?>
+	<?php include 'header.php' ?>
 	<div class="container">
 		<div class="MemberTitle">會員中心</div>
 		<div class="MemberBtns">

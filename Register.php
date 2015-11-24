@@ -10,7 +10,7 @@
 	<SCRIPT src="JS/Register.js"></SCRIPT>
 </head>
 <body>
-	<?php include 'header.php'?>
+	<?php include 'header.php' ?>
 	<div class="container">
 		<div class="MemberTitle">會員註冊</div>
 

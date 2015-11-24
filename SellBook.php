@@ -19,7 +19,7 @@ if (isset($_POST['b_id'])) {
 	<SCRIPT src="JS/BookSell.js"></SCRIPT>
 </head>
 <body onload=load(<?php echo $b_id?>)>
-	<?php include 'header.php'?>
+	<?php include 'header.php' ?>
 	<div class="container">
 		<div class="MemberTitle">賣書</div>
 		<div class="form-horizontal">
