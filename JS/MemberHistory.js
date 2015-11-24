@@ -32,13 +32,35 @@ function changePage(pageName) {
 	if (pageName == 'sellTag') {
 		searchSellInfo();
 	} else if (pageName == 'buyingTag') {
-
+		searchBuyingInfo();
 	} else if (pageName == "soldTag") {
 		searchHistoryInfo('sold');
 	} else {
 		searchHistoryInfo('buy');
 	}
 
+}
+function searchBuyingInfo(){
+
+	var u_id = '1'; //id等加上session後修改
+
+	//JS的AJAX開始
+
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			//接收API的回傳值 -- 是JSON
+			if (xhttp.responseText.result = "true"){
+				showTableData('buying', JSON.parse(xhttp.responseText));
+			}
+		}
+	}
+
+	xhttp.open("POST", "API/SelectBuying.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var data = "u_id="+u_id;
+	xhttp.send(data);
 }
 
 function searchSellInfo(){
@@ -105,14 +127,23 @@ function showTableData(type, json) {
 			var tr = createSellTableRow(i+1, data[i]); 
 			tBody.appendChild(tr);
 		}
+	} else if (type =="buying") {
+		for (var i = 0 ; i < data.length ; i++) {
+			var tr = createHistoryTableRow(i+1, data[i]); 
+			var span = '<td><span class="glyphicon glyphicon-trash" aria-hidden="true"'+
+				'style="cursor:pointer" onclick="deleteBuying('+data.book_id+')"></span></td>';
+			tr.insertAdjacentHTML('beforeend', span);
+			tBody.appendChild(tr);
+		}
 	} else {
 		for (var i = 0 ; i < data.length ; i++) {
 			var tr = createHistoryTableRow(i+1, data[i]); 
 			tBody.appendChild(tr);
-		}	
+		}
 	}
 	table.appendChild(tBody);
 }
+
 
 function createHistoryTableRow(num, data){
 	var tr = document.createElement("tr");
@@ -158,13 +189,20 @@ function createSellTableRow(num, data){
 
 function showTable(type){
 	var sellTable = document.getElementById('sellTable');
+	var buyingTable = document.getElementById('buyingTable');
 	var historyTable = document.getElementById('historyTable');
 	if (type == 'sell'){
 		sellTable.className = "";
+		buyingTable.className = "hiden";
+		historyTable.className = "hiden";	
+	} else if (type == 'buying'){
+		sellTable.className = "hiden";
+		buyingTable.className = "";
 		historyTable.className = "hiden";	
 	} else {
 		sellTable.className = "hiden";
-		historyTable.className = "";	
+		buyingTable.className = "hiden";
+		historyTable.className = "";		
 	}
 }
 

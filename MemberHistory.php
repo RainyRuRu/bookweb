@@ -39,6 +39,23 @@ if (isset($_GET['page'])) {
 				</tbody>
 			</table>	
 		</div>
+
+		<div id="buyingTable" class="hiden">
+			<table class="table table-hover" style="width:80%;margin:auto;margin-top:20px;">
+				<thead>
+					<tr>
+						<th class="col-md-1">編號</th>
+						<th>書名</th>
+						<th class="col-md-2">下單日期</th>
+						<th class="col-md-2">金額</th>
+						<th class="col-md-2">取消</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>	
+		</div>
+
 		<div id="historyTable" class="hiden">
 			<table class="table table-hover" style="width:80%;margin:auto;margin-top:20px;">
 				<thead>
