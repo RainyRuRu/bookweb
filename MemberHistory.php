@@ -16,7 +16,7 @@ if (isset($_GET['page'])) {
 </head>
 <body onload='load("<?php echo $page?>")'>
 	<div class="container">
-		<div class="MemberTitle">個人歷史紀錄</div>
+		<div class="MemberTitle">個人交易紀錄</div>
 		<ul class="nav nav-tabs" id="page">
 			<li id="sellTag" class="active"><a href="MemberHistory.php?page=sellTag">出售中</a></li>
 			<li id="buyingTag" class="active"><a href="MemberHistory.php?page=buyingTag">下單中</a></li>
