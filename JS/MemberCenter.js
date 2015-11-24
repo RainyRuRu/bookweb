@@ -2,7 +2,7 @@
 	AJAX 戳API - UpdateUser.php
 */
 function UpdateUserInfo() {
-	var u_id = '1'; //id等加上session後修改
+
 	var name = document.getElementsByName('name')[0].value;
 	var dept = document.getElementsByName('dept')[0].value;
 	var degree = document.getElementsByName('degree')[0].value;
@@ -17,7 +17,8 @@ function UpdateUserInfo() {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				//若回傳的值為成功，開啟成功訊息
 				var alert = document.getElementById('alert');	
 				alert.style.display = 'inline';
@@ -27,8 +28,7 @@ function UpdateUserInfo() {
 
 	xhttp.open("POST", "API/UpdateUser.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id+
-			"&name="+name+
+	var data = "name="+name+
 			"&dept="+dept+
 			"&degree="+degree+
 			"&email="+email+
@@ -75,8 +75,6 @@ function checkField(){
 */
 function searchUserInfo(){
 
-	var u_id = '1'; //id等加上session後修改
-
 	//JS的AJAX開始
 
 	var xhttp = new XMLHttpRequest();
@@ -84,15 +82,16 @@ function searchUserInfo(){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
-				showUserInfo(JSON.parse(xhttp.responseText));
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
+				showUserInfo(response);
 			}
 		}
 	}
 
 	xhttp.open("POST", "API/SelectUser.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id;
+	var data = "";
 	xhttp.send(data);
 }
 

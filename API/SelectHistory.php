@@ -1,9 +1,10 @@
 <?php
+session_start();
 
 //透過u_id搜尋History中的資料
 //type : 已出售或已購買
 
-$u_id = $_POST['u_id'];
+$u_id =  $_SESSION['u_id'];
 $type = $_POST['type'];
 /*
 $u_id = '3';

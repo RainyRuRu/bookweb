@@ -1,3 +1,8 @@
+<?php session_start(); 
+	if (!isset($_SESSION['u_id'])){
+		header("LOCATION: Login.php");	
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,13 +10,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
+	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 </head>
 <body>
-<<<<<<< HEAD
-	<div style="height:50px;background-color:#ACFDAC"></div>
-=======
-	<div style="height:50px;background-color:lightgray"></div>
->>>>>>> origin/master
+	<?php include 'header.php'?>
 	<div class="container">
 		<div class="MemberTitle">會員中心</div>
 		<div class="MemberBtns">

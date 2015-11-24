@@ -19,7 +19,8 @@ function RegisterUser() {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				//若回傳的值為成功，開啟成功訊息
 				var alert = document.getElementById('alert');	
 				alert.style.display = 'inline';

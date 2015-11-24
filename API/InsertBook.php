@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-$u_id = $_POST['u_id'];
+$u_id =  $_SESSION['u_id'];
 $name = $_POST['name'];
 $publisher = $_POST['publisher'];
 $author = $_POST['author'];

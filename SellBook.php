@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php 
 if (isset($_POST['b_id'])) {
 	$b_id = $_POST['b_id'];
@@ -12,10 +13,11 @@ if (isset($_POST['b_id'])) {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
+	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 	<SCRIPT src="JS/BookSell.js"></SCRIPT>
 </head>
 <body onload=load(<?php echo $b_id?>)>
-	<div style="height:50px;background-color:lightgray">暫時的header</div>
+	<?php include 'header.php'?>
 	<div class="container">
 		<div class="MemberTitle">賣書</div>
 		<div class="form-horizontal">

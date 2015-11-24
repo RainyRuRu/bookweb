@@ -1,4 +1,8 @@
-<?php 
+<?php session_start();
+
+if (!isset($_SESSION['u_id'])){
+	header("LOCATION: Login.php");	
+}
 if (isset($_GET['page'])) {
 	$page = $_GET['page'];
 } else {
@@ -12,9 +16,11 @@ if (isset($_GET['page'])) {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
+	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 	<SCRIPT src="JS/MemberHistory.js"></SCRIPT>
 </head>
 <body onload='load("<?php echo $page?>")'>
+	<?php include 'header.php'?>
 	<div class="container">
 		<div class="MemberTitle">個人交易紀錄</div>
 		<ul class="nav nav-tabs" id="page">

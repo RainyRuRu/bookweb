@@ -13,8 +13,9 @@ function searchBookInfo(b_id){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
-				showBookInfo(JSON.parse(xhttp.responseText));
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
+				showBookInfo(response);
 			}
 		}
 	}
@@ -96,7 +97,8 @@ function InsertBook(data) {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				//若回傳的值為成功，開啟成功訊息
 				alert("新增書籍成功");
 				location.href= 'MemberHistory.php?page=sellTag';
@@ -106,8 +108,7 @@ function InsertBook(data) {
 
 	xhttp.open("POST", "API/InsertBook.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id+
-			"&name="+data.name+
+	var data = "name="+data.name+
 			"&publisher="+data.publisher+
 			"&author="+data.author+
 			"&price="+data.price+
@@ -123,7 +124,8 @@ function UpdateBook(data) {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				//若回傳的值為成功，開啟成功訊息
 				alert("更新書籍成功");
 				location.href= 'MemberHistory.php?page=sellTag';

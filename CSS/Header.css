@@ -1,0 +1,23 @@
+.header{
+	height:50px;
+	background-color:#AFD9ED;
+}
+
+.homeIcon {
+    font-size: 40px;
+    margin: 5px;
+    margin-left: 20px;
+    color: #636363;
+    cursor: pointer;
+}
+
+.HeaderLoginBtn{
+	margin: 2px;
+	font-size: 22px;
+	background-color: #AFD9ED;
+	float: right;
+}
+
+
+
+

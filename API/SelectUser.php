@@ -1,8 +1,10 @@
 <?php
+session_start();
+
+$u_id =  $_SESSION['u_id'];
 
 //透過u_id搜尋userInfo中的資料
 
-$u_id = $_POST['u_id'];
 
 /*
 test data

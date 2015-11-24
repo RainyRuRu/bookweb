@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-$u_id = $_POST['u_id'];
+$u_id =  $_SESSION['u_id'];
 
 $result = false;
 $error = null;

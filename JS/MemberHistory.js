@@ -42,8 +42,6 @@ function changePage(pageName) {
 }
 function searchBuyingInfo(){
 
-	var u_id = '1'; //id等加上session後修改
-
 	//JS的AJAX開始
 
 	var xhttp = new XMLHttpRequest();
@@ -51,21 +49,21 @@ function searchBuyingInfo(){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
-				showTableData('buying', JSON.parse(xhttp.responseText));
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
+				showTableData('buying', response);
 			}
 		}
 	}
 
 	xhttp.open("POST", "API/SelectBuying.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id;
+	var data = "";
 	xhttp.send(data);
 }
 
 function searchSellInfo(){
 
-	var u_id = '1'; //id等加上session後修改
 
 	//JS的AJAX開始
 
@@ -74,21 +72,21 @@ function searchSellInfo(){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
-				showTableData('sell', JSON.parse(xhttp.responseText));
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
+				showTableData('sell', response);
 			}
 		}
 	}
 
 	xhttp.open("POST", "API/SelectBookByUser.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id;
+	var data = "";
 	xhttp.send(data);
 }
 
 function searchHistoryInfo(type){
 
-	var u_id = '1'; //id等加上session後修改
 
 	//JS的AJAX開始
 
@@ -97,15 +95,16 @@ function searchHistoryInfo(type){
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
-				showTableData('history', JSON.parse(xhttp.responseText));
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
+				showTableData('history', response);
 			}
 		}
 	}
 
 	xhttp.open("POST", "API/SelectHistory.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "u_id="+u_id+"&type="+type;
+	var data = "type="+type;
 	xhttp.send(data);
 }
 
@@ -218,7 +217,8 @@ function deleteBook(b_id) {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				alert("刪除成功");
 				location.href="memberHistory.php?page=sellTag";
 			}
@@ -234,8 +234,6 @@ function deleteBook(b_id) {
 
 function deleteBuying(b_id) {
 
-	var u_id = 1;
-
     if (confirm("是否確定要取消訂單?") == false) {
         return;
     }
@@ -247,7 +245,8 @@ function deleteBuying(b_id) {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			//接收API的回傳值 -- 是JSON
-			if (xhttp.responseText.result = "true"){
+			var response = JSON.parse(xhttp.responseText);
+			if (response.result == true){
 				alert("刪除成功");
 				location.href="memberHistory.php?page=buyingTag";
 			}
@@ -256,7 +255,7 @@ function deleteBuying(b_id) {
 
 	xhttp.open("POST", "API/DeleteBuying.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var data = "b_id="+b_id+"&u_id="+u_id;
+	var data = "b_id="+b_id;
 	xhttp.send(data); 
 }
 

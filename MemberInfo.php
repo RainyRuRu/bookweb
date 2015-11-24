@@ -1,3 +1,8 @@
+<?php session_start(); 
+	if (!isset($_SESSION['u_id'])){
+		header("LOCATION: Login.php");	
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +10,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
+	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 	<SCRIPT src="JS/MemberCenter.js"></SCRIPT>
 </head>
-<<<<<<< HEAD
 <body onload="searchUserInfo()">
-	<div style="height:50px;background-color:lightgray">暫時的header</div>
-=======
-<body>
-	<div style="height:50px;background-color:lightgray"></div>
->>>>>>> origin/master
+	<?php include 'header.php'?>
 	<div class="container">
 		<div class="MemberTitle">會員資料修改</div>
 		<div id="alert" class="col-sm-offset-3 col-sm-6 alert alert-success" style="display:none"><center>修改成功</center></div>
