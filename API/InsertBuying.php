@@ -1,6 +1,8 @@
 <?php
+session_start();
 
-$keyword = $_POST['keyword'];
+$u_id =  $_SESSION['u_id'];
+$b_id = $_POST['b_id'];
 
 $result = false;
 $error = null;
@@ -14,10 +16,12 @@ try {
 
 	$db = new PDO($dsn, $user, $password);
 	$db->exec("set names utf8");
-	$stmt = $db->prepare("SELECT * FROM `books` where status in (0,1) and name like '%" . $keyword . "%'");
+	$stmt = $db->prepare("INSERT INTO `buying` (`b_id`, `buyer`, `date`) VALUES (:b_id, :buyer, now())");
 
+	$stmt->bindParam(":b_id", $b_id);
+	$stmt->bindParam(":buyer", $u_id);
+	
     $stmt->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	$result = true;
 
@@ -34,5 +38,3 @@ $result = array(
 $json_result = json_encode($result);
 
 echo $json_result;
-
-//----exit----

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+	if (isset($_GET['keyword'])){
+		$keyword = $_GET['keyword'];
+	} else {
+		header("LOCATION: Homepage.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +13,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 	<link rel=stylesheet type="text/css" href="CSS/HomePage.css">
 	<link rel=stylesheet type="text/css" href="CSS/Header.css">
+	<SCRIPT src="JS/SearchBook.js"></SCRIPT>
 </head>
-<body>
+<body onload='searchBook("<?php echo $keyword ?>")'>
 	<?php include 'header.php' ?>
 	<div class="container">
 		<div class="Title">高師大校內二手書交易網</div>
@@ -18,6 +25,20 @@
 				<button type="submit" class="btn SearchBtn">搜尋</button>
 			</form>
 		</div>
+
+		<table id = "resultTable" class="table table-hover" style="width:80%;margin:auto;margin-top:20px;">
+			<thead>
+				<tr>
+					<th class="col-md-1">編號</th>
+					<th>書名</th>
+					<th class="col-md-2">價格</th>
+					<th class="col-md-2">查看</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+
 	</div>
 </body>
 </html>

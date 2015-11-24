@@ -19,8 +19,8 @@ if (isset($_GET['page'])) {
 	<link rel=stylesheet type="text/css" href="CSS/Header.css">
 	<SCRIPT src="JS/MemberHistory.js"></SCRIPT>
 </head>
-<body onload='load("<?php echo $page?>")'>
-	<?php include 'header.php'?>
+<body onload='load("<?php echo $page ?>")'>
+	<?php include 'header.php' ?>
 	<div class="container">
 		<div class="MemberTitle">個人交易紀錄</div>
 		<ul class="nav nav-tabs" id="page">
