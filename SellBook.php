@@ -1,3 +1,10 @@
+<?php 
+if (isset($_POST['b_id'])) {
+	$b_id = $_POST['b_id'];
+} else {
+	$b_id = null;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +14,7 @@
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
 	<SCRIPT src="JS/BookSell.js"></SCRIPT>
 </head>
-<body>
+<body onload=load(<?php echo $b_id?>)>
 	<div style="height:50px;background-color:lightgray">暫時的header</div>
 	<div class="container">
 		<div class="MemberTitle">賣書</div>
@@ -55,7 +62,7 @@
 				<label id="contentErrorLabel" class="col-sm-4 errorLabel">請輸入書本敘述</label>
 			</div>
 			<center>
-			<button class="btn btn-default" onclick='checkField()'>確定賣出</button>
+			<button class="btn btn-default" onclick='checkField()'>確定</button>
 			</center>
 		</div>
 	</div>

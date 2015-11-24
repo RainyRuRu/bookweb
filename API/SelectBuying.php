@@ -1,10 +1,7 @@
 <?php
 
-/*
 $u_id = $_POST['u_id'];
-*/
 
-$u_id = 1;
 $result = false;
 $error = null;
 $data = array();

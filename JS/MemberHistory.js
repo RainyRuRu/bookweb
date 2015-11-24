@@ -176,7 +176,7 @@ function createSellTableRow(num, data){
 	tr.insertAdjacentHTML('beforeend', span);	
 
 	var span = '<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"'+
-				'style="cursor:pointer"></span></td>';
+				'style="cursor:pointer" onclick="editBook('+data.book_id+')"></span></td>';
 	tr.insertAdjacentHTML('beforeend', span);	
 
 	var span = '<td><span class="glyphicon glyphicon-trash" aria-hidden="true"'+
@@ -258,4 +258,21 @@ function deleteBuying(b_id) {
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	var data = "b_id="+b_id+"&u_id="+u_id;
 	xhttp.send(data); 
+}
+
+function editBook(b_id) {
+
+	var form = document.createElement('form');
+	form.action = 'SellBook.php';
+	form.method = 'POST';
+
+	var input = document.createElement('input');
+	input.type = 'hidden';
+	input.name = 'b_id';
+	input.value = b_id;
+
+	form.appendChild(input);
+
+	form.submit();
+
 }
