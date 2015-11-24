@@ -131,8 +131,8 @@ function showTableData(type, json) {
 		for (var i = 0 ; i < data.length ; i++) {
 			var tr = createHistoryTableRow(i+1, data[i]); 
 			var span = '<td><span class="glyphicon glyphicon-trash" aria-hidden="true"'+
-				'style="cursor:pointer" onclick="deleteBuying('+data.book_id+')"></span></td>';
-			tr.insertAdjacentHTML('beforeend', span);
+			'style="cursor:pointer" onclick="deleteBuying('+data[i].b_id+')"></span></td>';
+			tr.insertAdjacentHTML('beforeend', span);	
 			tBody.appendChild(tr);
 		}
 	} else {
@@ -143,7 +143,6 @@ function showTableData(type, json) {
 	}
 	table.appendChild(tBody);
 }
-
 
 function createHistoryTableRow(num, data){
 	var tr = document.createElement("tr");
@@ -221,7 +220,7 @@ function deleteBook(b_id) {
 			//接收API的回傳值 -- 是JSON
 			if (xhttp.responseText.result = "true"){
 				alert("刪除成功");
-				location.href="memberHistory.php";
+				location.href="memberHistory.php?page=sellTag";
 			}
 		}
 	}
@@ -229,5 +228,34 @@ function deleteBook(b_id) {
 	xhttp.open("POST", "API/DeleteBook.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	var data = "b_id="+b_id;
+	xhttp.send(data); 
+}
+
+
+function deleteBuying(b_id) {
+
+	var u_id = 1;
+
+    if (confirm("是否確定要取消訂單?") == false) {
+        return;
+    }
+
+	//JS的AJAX開始
+
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			//接收API的回傳值 -- 是JSON
+			if (xhttp.responseText.result = "true"){
+				alert("刪除成功");
+				location.href="memberHistory.php?page=buyingTag";
+			}
+		}
+	}
+
+	xhttp.open("POST", "API/DeleteBuying.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var data = "b_id="+b_id+"&u_id="+u_id;
 	xhttp.send(data); 
 }

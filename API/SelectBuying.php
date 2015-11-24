@@ -28,6 +28,7 @@ try {
 		foreach ($books as $book){
 			$tmp = array();
 			$bookInfo = bookData($db, $book['b_id']);
+			$tmp['b_id'] = $book['b_id'];
 			$tmp['name'] = $bookInfo['name'];
 			$tmp['date'] = $book['date'];
 			$tmp['price'] = $bookInfo['price'];
