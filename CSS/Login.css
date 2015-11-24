@@ -1,0 +1,29 @@
+body{
+	font-family:Microsoft JhengHei;
+}
+
+.HeaderLoginBtn{
+	margin: 2px;
+	font-size: 22px;
+	background-color:lightgray;
+	float: right;
+}
+
+.Title{
+	margin-top: 50px;
+	margin-bottom: 20px;	
+	font-size: 50px;
+	text-align: center;
+}
+
+.form-signin {
+	margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+}
+
+.LoginBtns{
+	margin: 0 auto;
+	max-width: 330px;
+    padding: 15px;
+}

@@ -7,7 +7,11 @@
 	<link rel=stylesheet type="text/css" href="CSS/MemberCenter.css">
 </head>
 <body>
+<<<<<<< HEAD
 	<div style="height:50px;background-color:#ACFDAC"></div>
+=======
+	<div style="height:50px;background-color:lightgray"></div>
+>>>>>>> origin/master
 	<div class="container">
 		<div class="MemberTitle">會員中心</div>
 		<div class="MemberBtns">
