@@ -1,8 +1,8 @@
 <?php
-session_start();
 
-$u_id =  $_SESSION['u_id'];
 $b_id = $_POST['b_id'];
+
+//$keyword = "python";
 
 $result = false;
 $error = null;
@@ -16,24 +16,17 @@ try {
 
 	$db = new PDO($dsn, $user, $password);
 	$db->exec("set names utf8");
-	$stmt = $db->prepare("INSERT INTO `buying` (`b_id`, `buyer`, `date`) VALUES (:b_id, :buyer, now())");
+	$stmt = $db->prepare("SELECT buyer FROM `buying` where b_id = :b_id");
 
 	$stmt->bindParam(":b_id", $b_id);
-	$stmt->bindParam(":buyer", $u_id);
-	
-    $stmt->execute();
-
-    $stmt = $db->prepare("UPDATE `books` SET  `status` = 1
-            Where book_id = :b_id");
-
-    $stmt->bindParam(":b_id", $b_id);
 
     $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	$result = true;
 
 } catch (PDOException $e) {
-	 $error = $e;
+	$error = $e;
 }
 
 $result = array(
@@ -45,3 +38,5 @@ $result = array(
 $json_result = json_encode($result);
 
 echo $json_result;
+
+//----exit----

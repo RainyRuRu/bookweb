@@ -1,8 +1,8 @@
 <?php
 
-//$keyword = $_POST['keyword'];
+$keyword = $_POST['keyword'];
 
-$keyword = "python";
+//$keyword = "python";
 
 $result = false;
 $error = null;

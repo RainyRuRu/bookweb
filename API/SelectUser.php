@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-$u_id =  $_SESSION['u_id'];
+if (isset($_POST['u_id'])) {
+    $u_id =  $_POST['u_id'];
+} else {
+    $u_id =  $_SESSION['u_id'];
+}
+
 
 //透過u_id搜尋userInfo中的資料
 
@@ -28,6 +33,7 @@ try {
     $stmt->bindParam(":u_id", $u_id);
 
     $stmt->execute();
+
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($row != false) {

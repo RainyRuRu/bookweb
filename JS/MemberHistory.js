@@ -170,7 +170,7 @@ function createSellTableRow(num, data){
 	if (data.status == 0) {
 		var span = '<td><span class="label label-default">等待中</span></td>';
 	} else {
-		var span = '<td><span class="label label-success">有人下單</span></td>';
+		var span = '<td><span class="label label-success" style="cursor:pointer" onclick="openBuyerList('+data.book_id+')">有人下單</span></td>';
 	}
 	tr.insertAdjacentHTML('beforeend', span);	
 
@@ -274,4 +274,19 @@ function editBook(b_id) {
 
 	form.submit();
 
+}
+
+function openBuyerList(b_id) {
+	var form = document.createElement('form');
+	form.action = 'buyerList.php';
+	form.method = 'POST';
+
+	var input = document.createElement('input');
+	input.type = 'hidden';
+	input.name = 'b_id';
+	input.value = b_id;
+
+	form.appendChild(input);
+
+	form.submit();
 }
