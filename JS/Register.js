@@ -21,9 +21,11 @@ function RegisterUser() {
 			//接收API的回傳值 -- 是JSON
 			var response = JSON.parse(xhttp.responseText);
 			if (response.result == true){
-				//若回傳的值為成功，開啟成功訊息
-				var alert = document.getElementById('alert');	
-				alert.style.display = 'inline';
+				alert("註冊成功");
+			} else {
+				if (response.responseDetail == "account"){
+					alert("帳號已有人使用");
+				}
 			}
 		}
 	}
@@ -48,9 +50,6 @@ function RegisterUser() {
 	全部都非空白呼叫UpdateUserInfo方法
 */
 function checkField(){
-	
-	var alert = document.getElementById('alert');
-	alert.style.display = 'none';
 
 	var checkResult = true;
 	

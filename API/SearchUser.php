@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 $account = $_POST['acc'];
 $pwd = $_POST['pwd'];
 
@@ -9,7 +10,7 @@ $data = false;
 
 try {
 
-	$dsn = 'mysql:dbname=bookweb;host=140.127.74.164';
+	$dsn = 'mysql:dbname=bookweb;host=192.168.1.101';
 	$user = 'bookweb';
 	$password = '1234';
 	

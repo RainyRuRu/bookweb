@@ -20,14 +20,14 @@
 				<div class="col-sm-4">
 					<input type="text" class="form-control" name="acc">
 				</div>
-				<label id="nameErrorLabel" class="col-sm-4 errorLabel">請輸入帳號</label>
+				<label id="accErrorLabel" class="col-sm-4 errorLabel">請輸入帳號</label>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">密碼：</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" name="pwd">
 				</div>
-				<label id="nameErrorLabel" class="col-sm-4 errorLabel">請輸入密碼</label>
+				<label id="pwdErrorLabel" class="col-sm-4 errorLabel">請輸入密碼</label>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">姓名：</label>
