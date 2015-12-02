@@ -22,8 +22,8 @@ $data = null;
 
 try {
 
-    $dsn = 'mysql:dbname=bookweb;host=192.168.1.101';
-	$user = 'bookweb';
+    $dsn = 'mysql:dbname=bookweb;host=140.127.74.142';
+   	$user = 'bookweb';
 	$password = '1234';
 	
 	$db = new PDO($dsn, $user, $password);
