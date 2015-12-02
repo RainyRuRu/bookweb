@@ -22,6 +22,7 @@ function RegisterUser() {
 			var response = JSON.parse(xhttp.responseText);
 			if (response.result == true){
 				alert("註冊成功");
+				location.href="login.php";
 			} else {
 				if (response.responseDetail == "account"){
 					alert("帳號已有人使用");

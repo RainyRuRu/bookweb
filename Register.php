@@ -25,7 +25,7 @@
 			<div class="form-group">
 				<label class="col-sm-4 control-label">密碼：</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" name="pwd">
+					<input type="password" class="form-control" name="pwd">
 				</div>
 				<label id="pwdErrorLabel" class="col-sm-4 errorLabel">請輸入密碼</label>
 			</div>
